@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Student_Information_App.Models.StudentModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row text-center pt-2">
+    <div class="col">
+        <h2>Index</h2>
+    </div>
+</div>
+<br />
+
+<div class="row pt-2">
+    <div class="col">
+        <button class="btn btn-danger pt-2" onclick="Create()">Create New</button>
+    </div>
+
+</div>
+
+<!--<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+    -->
+<table class="table">
+    <tr>
+       @* <th>
+            @Html.DisplayNameFor(model => model.Roll_No)
+        </th>
+           *@
+        <th>
+            @Html.DisplayNameFor(model => model.Stud_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mob_No)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th></th>
+    </tr>
+
+    @*@foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Roll_No)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stud_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mob_No)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+
+        }
+    *@
+
+</table>
+
+<script type="text/javascript">
+    function Create() {
+        window.location.href = '@Url.Action("Create", "Student")';
+    }
+</script>
