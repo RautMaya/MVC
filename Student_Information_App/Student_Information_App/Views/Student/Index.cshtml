@@ -40,29 +40,30 @@
         <th></th>
     </tr>
 
-    @*@foreach (var item in Model) {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Roll_No)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Stud_Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Mob_No)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Address)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                </td>
-            </tr>
+    @foreach (var item in Model) {
+<tr>
+    @*<td>
+            @Html.DisplayFor(modelItem => item.Roll_No)
+        </td>
+    *@
+    <td>
+        @Html.DisplayFor(modelItem => item.Stud_Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Mob_No)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Address)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new {  Id=item.Roll_No }) |
+        @Html.ActionLink("Details", "Details", new { Id = item.Roll_No  }) |
+        @Html.ActionLink("Delete", "Delete", new { Id = item.Roll_No  })
+    </td>
+</tr>
 
         }
-    *@
+    
 
 </table>
 
@@ -71,3 +72,16 @@
         window.location.href = '@Url.Action("Create", "Student")';
     }
 </script>
+
+@if (TempData["Message"] != null)
+            {
+                <script type="text/javascript">
+                    window.onload = function () {
+                        var message = '@TempData["Message"]';
+                        if (message) {
+                            alert(message);
+                        }
+                    }
+                </script>
+            }
+
